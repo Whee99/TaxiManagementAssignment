@@ -21,12 +21,10 @@ namespace TaxiManagementAssignment
 
         public bool AddTaxi(Taxi t)
         { // start of AddTaxi
-            if (numberOfTaxiSpaces == 0)
-            {
+            if (numberOfTaxiSpaces == 0) {
                 return false;
             }
-            else
-            {
+            else {
                 t.Rank = this;
                 TaxiSpace.Add(t);
                 numberOfTaxiSpaces--;

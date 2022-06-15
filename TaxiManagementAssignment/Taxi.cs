@@ -39,36 +39,55 @@ namespace TaxiManagementAssignment
             Number = num;
         } // end of Taxi
 
+        public double GetCurrentFare()
+        { // start of GetCurrentFare
+            return CurrentFare;
+        } // end of GetCurrentFare
+
+        public string GetDestination()
+        { // start of GetDestination
+            return Destination;
+        } // end of GetDestination
+
+        public string GetLocation()
+        { // start of GetLocation
+            return Location;
+        } // end of GetLocation
+
+        public int GetNumber()
+        { // start of GetNumber
+            return Number;
+        } // end of GetNumber
+
+        public Rank GetRank()
+        { // start of GetRank
+            return Rank;
+        } // end of GetRank
+
+        public double GetTotalMoneyPaid()
+        { // start of GetTotalMoneyPaid
+            return TotalMoneyPaid;
+        } // end of GetTotalMoneyPaid
+
         public void AddFare(string destination, double agreedPrice)
         { // start of AddFare
-
             rank = null;
             Location = ON_ROAD;
             CurrentFare = agreedPrice;
             Destination = destination;
-
         } // end of AddFare
 
         public void DropFare(bool priceWasPaid)
         { // start of DropFare
-
-            if (priceWasPaid == false)
-            {
+            if (priceWasPaid == false) {
                 TotalMoneyPaid = 0;
             }
-            else
-            {
+            else {
                 TotalMoneyPaid = CurrentFare;
                 Destination = "";
                 CurrentFare = 0;
             }
-
         } // end of DropFare
-
-        //public void SetRank(Rank r)
-        //{ // start of SetRank
-        //    Rank = r;
-        //} // end of SetRank
 
     } // end of class Taxi
 

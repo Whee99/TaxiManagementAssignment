@@ -10,42 +10,65 @@ namespace TaxiManagementAssignment
         public int Number = 0;
         public double CurrentFare = 0;
         public string Destination = "";
-        public static string IN_RANK = "in rank";
-        public static string ON_ROAD = "on the road";
+        public const string IN_RANK = "in rank";
+        public const string ON_ROAD = "on the road";
         public string Location = ON_ROAD;
         public double TotalMoneyPaid = 0;
-        public Rank Rank;
+        private Rank rank;
+        public Rank Rank
+        {
+            get { return rank; }
+            set
+            {
+                if (Destination.Length > 0) {
+                    throw new Exception("Cannot join rank if fare has not been dropped");
+                }
+                if (value is null) {
+                    throw new Exception("Rank cannot be null");
+                }
+                else {
+                    rank = value;
+                    Location = IN_RANK;
+                }
+
+            }
+        }
 
         public Taxi(int num)
         { // start of Taxi
-
             Number = num;
-
         } // end of Taxi
 
         public void AddFare(string destination, double agreedPrice)
         { // start of AddFare
 
+            rank = null;
             Location = ON_ROAD;
             CurrentFare = agreedPrice;
             Destination = destination;
-            Rank = null;
 
         } // end of AddFare
 
         public void DropFare(bool priceWasPaid)
         { // start of DropFare
 
-            if(priceWasPaid == false) {
+            if (priceWasPaid == false)
+            {
                 TotalMoneyPaid = 0;
             }
-            else {
+            else
+            {
                 TotalMoneyPaid = CurrentFare;
                 Destination = "";
                 CurrentFare = 0;
             }
 
         } // end of DropFare
+
+        //public void SetRank(Rank r)
+        //{ // start of SetRank
+        //    Rank = r;
+        //} // end of SetRank
 
     } // end of class Taxi
 

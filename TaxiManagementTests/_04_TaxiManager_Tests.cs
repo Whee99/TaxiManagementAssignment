@@ -11,19 +11,19 @@ namespace TaxiManagementTests
          * Uncomment from line 14
          */
 
-        //[TestMethod]
-        //public void _01_NewTaxiManagerHasEmptyTaxiCollection()
-        //{
-        //    TaxiManager tm = new TaxiManager();
-        //    Assert.AreEqual(0, tm.GetAllTaxis().Count);
-        //}
+        [TestMethod]
+        public void _01_NewTaxiManagerHasEmptyTaxiCollection()
+        {
+            TaxiManager tm = new TaxiManager();
+            Assert.AreEqual(0, tm.GetAllTaxis().Count);
+        }
 
-        //[TestMethod]
-        //public void _02_FindTaxiReturnsNullWhenTaxiNotFound()
-        //{
-        //    TaxiManager tm = new TaxiManager();
-        //    Assert.IsNull(tm.FindTaxi(1));
-        //}
+        [TestMethod]
+        public void _02_FindTaxiReturnsNullWhenTaxiNotFound()
+        {
+            TaxiManager tm = new TaxiManager();
+            Assert.IsNull(tm.FindTaxi(1));
+        }
 
         //[TestMethod]
         //public void _03_FindTaxiReturnsCorrectTaxi()

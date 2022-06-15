@@ -11,7 +11,7 @@ namespace TaxiManagementAssignment
         public int Id;
         public int numberOfTaxiSpaces;
         public List<Taxi> TaxiSpace;
-        
+
         public Rank(int rankid, int numoftaxispaces)
         { // start of Rank
             Id = rankid;
@@ -21,10 +21,12 @@ namespace TaxiManagementAssignment
 
         public bool AddTaxi(Taxi t)
         { // start of AddTaxi
-            if(numberOfTaxiSpaces == 0) {
+            if (numberOfTaxiSpaces == 0)
+            {
                 return false;
             }
-            else {
+            else
+            {
                 t.Rank = this;
                 TaxiSpace.Add(t);
                 numberOfTaxiSpaces--;
@@ -34,13 +36,16 @@ namespace TaxiManagementAssignment
 
         public Taxi FrontTaxiTakesFare(string destination, double agreedPrice)
         { // start of FrontTaxiTakesFare
-            if(TaxiSpace.Count == 0) {
+            if (TaxiSpace.Count == 0)
+            {
                 return null;
             }
-            else {
-                TaxiSpace.RemoveAt(TaxiSpace.Count - 1);
+            else
+            {
+                Taxi t = TaxiSpace[0];
+                TaxiSpace.RemoveAt(0);
                 numberOfTaxiSpaces++;
-                return TaxiSpace[0];
+                return t;
             }
         } // end of FrontTaxiTakesFare
 

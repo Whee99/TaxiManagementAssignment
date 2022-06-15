@@ -16,12 +16,14 @@ namespace TaxiManagementAssignment
         {
             rankId = rankid;
             taxiNum = t.Number;
+            Destination = t.Destination;
+            agreedPrice = t.CurrentFare;
         }
 
         public override string ToString()
         {
             string dateStr = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-            return ($"{dateStr} Leave     - Taxi 1 from rank 2 to {Destination} for £{agreedPrice}");
+            return ($"{dateStr} Leave     - Taxi {taxiNum} from rank {rankId} to {Destination} for £{agreedPrice}");
         }
     } // end of class LeaveTransaction
 } // end of namespace

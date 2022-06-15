@@ -56,7 +56,6 @@ namespace TaxiManagementTests
             Assert.AreEqual("Leave", lt.TransactionType);
         }
 
-        // COME BACK AFTER TaxiManager!!!
         [TestMethod]
         public void _06_InLeaveTransaction_ToStringReturnsCorrectString()
         {

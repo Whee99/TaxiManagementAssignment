@@ -8,14 +8,27 @@ namespace TaxiManagementAssignment
     { // start of class TaxiManager
         public SortedDictionary<int, Taxi> taxis = new SortedDictionary<int, Taxi>();
 
-        //public Taxi CreateTaxi(int taxiNum)
-        //{
-
-        //}
+        public Taxi CreateTaxi(int taxiNum)
+        {
+            Taxi x = new Taxi(taxiNum);
+            int Number = taxiNum;
+            if (taxis.GetValueOrDefault(Number) == default) {
+                taxis.Add(Number, x);
+            }
+            else {
+                return taxis.GetValueOrDefault(Number);
+            }
+            return x;
+        }
 
         public Taxi FindTaxi(int taxiNum)
         {
-            return taxis.GetValueOrDefault(taxiNum);
+            if(taxis.GetValueOrDefault(taxiNum) == default) {
+                return null;
+            }
+            else {
+                return taxis.GetValueOrDefault(taxiNum);
+            }
         }
 
         public SortedDictionary<int, Taxi> GetAllTaxis()

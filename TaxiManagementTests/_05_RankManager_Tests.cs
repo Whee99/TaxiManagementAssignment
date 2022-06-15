@@ -10,107 +10,107 @@ namespace TaxiManagementTests
          * Uncomment from line 13
          */
 
-        //[TestMethod]
-        //public void _01_ConstructorCreatesRank1()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsNotNull(rm.FindRank(1));
-        //}
+        [TestMethod]
+        public void _01_ConstructorCreatesRank1()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsNotNull(rm.FindRank(1));
+        }
 
-        //[TestMethod]
-        //public void _02_Rank1CanAcceptFiveTaxis()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Rank r = rm.FindRank(1);
-        //    r.AddTaxi(new Taxi(1));
-        //    r.AddTaxi(new Taxi(2));
-        //    r.AddTaxi(new Taxi(3));
-        //    r.AddTaxi(new Taxi(4));
-        //    Assert.IsTrue(r.AddTaxi(new Taxi(5)));
-        //}
+        [TestMethod]
+        public void _02_Rank1CanAcceptFiveTaxis()
+        {
+            RankManager rm = new RankManager();
+            Rank r = rm.FindRank(1);
+            r.AddTaxi(new Taxi(1));
+            r.AddTaxi(new Taxi(2));
+            r.AddTaxi(new Taxi(3));
+            r.AddTaxi(new Taxi(4));
+            Assert.IsTrue(r.AddTaxi(new Taxi(5)));
+        }
 
-        //[TestMethod]
-        //public void _03_Rank1CannotAcceptSixthTaxi()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Rank r = rm.FindRank(1);
-        //    r.AddTaxi(new Taxi(1));
-        //    r.AddTaxi(new Taxi(2));
-        //    r.AddTaxi(new Taxi(3));
-        //    r.AddTaxi(new Taxi(4));
-        //    r.AddTaxi(new Taxi(5));
-        //    Assert.IsFalse(r.AddTaxi(new Taxi(6)));
-        //}
+        [TestMethod]
+        public void _03_Rank1CannotAcceptSixthTaxi()
+        {
+            RankManager rm = new RankManager();
+            Rank r = rm.FindRank(1);
+            r.AddTaxi(new Taxi(1));
+            r.AddTaxi(new Taxi(2));
+            r.AddTaxi(new Taxi(3));
+            r.AddTaxi(new Taxi(4));
+            r.AddTaxi(new Taxi(5));
+            Assert.IsFalse(r.AddTaxi(new Taxi(6)));
+        }
 
-        //[TestMethod]
-        //public void _04_ConstructorCreatesRank2()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsNotNull(rm.FindRank(2));
-        //}
+        [TestMethod]
+        public void _04_ConstructorCreatesRank2()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsNotNull(rm.FindRank(2));
+        }
 
-        //[TestMethod]
-        //public void _05_Rank2CanAcceptTwoTaxis()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Rank r = rm.FindRank(2);
-        //    r.AddTaxi(new Taxi(1));
-        //    Assert.IsTrue(r.AddTaxi(new Taxi(2)));
-        //}
+        [TestMethod]
+        public void _05_Rank2CanAcceptTwoTaxis()
+        {
+            RankManager rm = new RankManager();
+            Rank r = rm.FindRank(2);
+            r.AddTaxi(new Taxi(1));
+            Assert.IsTrue(r.AddTaxi(new Taxi(2)));
+        }
 
-        //[TestMethod]
-        //public void _06_Rank2CannotAcceptThirdTaxi()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Rank r = rm.FindRank(2);
-        //    r.AddTaxi(new Taxi(1));
-        //    r.AddTaxi(new Taxi(2));
-        //    Assert.IsFalse(r.AddTaxi(new Taxi(3)));
-        //}
+        [TestMethod]
+        public void _06_Rank2CannotAcceptThirdTaxi()
+        {
+            RankManager rm = new RankManager();
+            Rank r = rm.FindRank(2);
+            r.AddTaxi(new Taxi(1));
+            r.AddTaxi(new Taxi(2));
+            Assert.IsFalse(r.AddTaxi(new Taxi(3)));
+        }
 
-        //[TestMethod]
-        //public void _07_ConstructorCreatesRank3()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsNotNull(rm.FindRank(3));
-        //}
+        [TestMethod]
+        public void _07_ConstructorCreatesRank3()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsNotNull(rm.FindRank(3));
+        }
 
-        //[TestMethod]
-        //public void _08_Rank3CanAcceptFourTaxis()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Rank r = rm.FindRank(3);
-        //    r.AddTaxi(new Taxi(1));
-        //    r.AddTaxi(new Taxi(2));
-        //    r.AddTaxi(new Taxi(3));
-        //    Assert.IsTrue(r.AddTaxi(new Taxi(4)));
-        //}
+        [TestMethod]
+        public void _08_Rank3CanAcceptFourTaxis()
+        {
+            RankManager rm = new RankManager();
+            Rank r = rm.FindRank(3);
+            r.AddTaxi(new Taxi(1));
+            r.AddTaxi(new Taxi(2));
+            r.AddTaxi(new Taxi(3));
+            Assert.IsTrue(r.AddTaxi(new Taxi(4)));
+        }
 
-        //[TestMethod]
-        //public void _09_Rank3CannotAcceptFifthTaxi()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Rank r = rm.FindRank(3);
-        //    r.AddTaxi(new Taxi(1));
-        //    r.AddTaxi(new Taxi(2));
-        //    r.AddTaxi(new Taxi(3));
-        //    r.AddTaxi(new Taxi(4));
-        //    Assert.IsFalse(r.AddTaxi(new Taxi(5)));
-        //}
+        [TestMethod]
+        public void _09_Rank3CannotAcceptFifthTaxi()
+        {
+            RankManager rm = new RankManager();
+            Rank r = rm.FindRank(3);
+            r.AddTaxi(new Taxi(1));
+            r.AddTaxi(new Taxi(2));
+            r.AddTaxi(new Taxi(3));
+            r.AddTaxi(new Taxi(4));
+            Assert.IsFalse(r.AddTaxi(new Taxi(5)));
+        }
 
-        //[TestMethod]
-        //public void _10_FindRankReturnsNullWhenRankNotFound()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsNull(rm.FindRank(4));
-        //}
+        [TestMethod]
+        public void _10_FindRankReturnsNullWhenRankNotFound()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsNull(rm.FindRank(4));
+        }
 
-        //[TestMethod]
-        //public void _11_FindRankReturnsCorrectRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.AreEqual(1, rm.FindRank(1).Id);
-        //}
+        [TestMethod]
+        public void _11_FindRankReturnsCorrectRank()
+        {
+            RankManager rm = new RankManager();
+            Assert.AreEqual(1, rm.FindRank(1).Id);
+        }
 
         //[TestMethod]
         //public void _12_AddTaxiToRankReturnsFalseWhenTaxiAlreadyInThatRank()

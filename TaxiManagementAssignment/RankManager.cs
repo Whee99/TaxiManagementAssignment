@@ -20,15 +20,15 @@ namespace TaxiManagementAssignment
 		} // end of RankManager
 
 		public bool AddTaxiToRank(Taxi t, int rankId)
-        {
-			if (ranks[rankId].TaxiSpace.Contains(t)) {
+		{ // start of AddTaxiToRank
+			if (t.Rank == ranks[rankId]) {
 				return false;
 			}
 			else {
-				//t.Rank.AddTaxi(new Taxi(rankId));
+				t.Rank = this.ranks[rankId];
 				return true;
 			}
-		}
+		} // end of AddTaxiToRank
 
 		public Rank FindRank(int rankId)
 		{ // start of FindRank

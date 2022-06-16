@@ -121,14 +121,14 @@ namespace TaxiManagementTests
             Assert.IsFalse(rm.AddTaxiToRank(t, 1));
         }
 
-        //[TestMethod]
-        //public void _13_AddTaxiToRankReturnsFalseWhenTaxiAlreadyInAnotherRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Taxi t = new Taxi(1);
-        //    rm.AddTaxiToRank(t, 1);
-        //    Assert.IsFalse(rm.AddTaxiToRank(t, 2));
-        //}
+        [TestMethod]
+        public void _13_AddTaxiToRankReturnsFalseWhenTaxiAlreadyInAnotherRank()
+        {
+            RankManager rm = new RankManager();
+            Taxi t = new Taxi(1);
+            rm.AddTaxiToRank(t, 1);
+            Assert.IsFalse(rm.AddTaxiToRank(t, 2));
+        }
 
         //[TestMethod]
         //public void _14_AddTaxiToRankReturnsFalseWhenRankDoesNotExist()

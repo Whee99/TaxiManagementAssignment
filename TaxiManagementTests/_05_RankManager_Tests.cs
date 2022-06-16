@@ -130,37 +130,39 @@ namespace TaxiManagementTests
             Assert.IsFalse(rm.AddTaxiToRank(t, 2));
         }
 
-        //[TestMethod]
-        //public void _14_AddTaxiToRankReturnsFalseWhenRankDoesNotExist()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsFalse(rm.AddTaxiToRank(new Taxi(3), 4));
-        //}
+        [TestMethod]
+        public void _14_AddTaxiToRankReturnsFalseWhenRankDoesNotExist()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsFalse(rm.AddTaxiToRank(new Taxi(3), 4));
+        }
 
-        //[TestMethod]
-        //public void _15_AddTaxiToRankReturnsFalseWhenTaxiHasDestination()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Taxi t = new Taxi(1);
-        //    t.AddFare("Somewhere", 1.23);
-        //    Assert.IsFalse(rm.AddTaxiToRank(t, 1));
-        //}
+        [TestMethod]
+        public void _15_AddTaxiToRankReturnsFalseWhenTaxiHasDestination()
+        {
+            RankManager rm = new RankManager();
+            Taxi t = new Taxi(1);
+            t.AddFare("Somewhere", 1.23);
+            Assert.IsFalse(rm.AddTaxiToRank(t, 1));
+        }
 
-        //[TestMethod]
-        //public void _16_AddTaxiToRankReturnsFalseWhenSpaceIsNotAvailable()
-        //{
-        //    RankManager rm = new RankManager();
-        //    rm.AddTaxiToRank(new Taxi(1), 2);
-        //    rm.AddTaxiToRank(new Taxi(2), 2);
-        //    Assert.IsFalse(rm.AddTaxiToRank(new Taxi(3), 2));
-        //}
+        // STILL FAILS
+        [TestMethod]
+        public void _16_AddTaxiToRankReturnsFalseWhenSpaceIsNotAvailable()
+        {
+            RankManager rm = new RankManager();
+            rm.AddTaxiToRank(new Taxi(1), 2);
+            rm.AddTaxiToRank(new Taxi(2), 2);
+            Assert.IsFalse(rm.AddTaxiToRank(new Taxi(3), 2));
+        }
 
-        //[TestMethod]
-        //public void _17_AddTaxiToRankReturnsTrueWhenSpaceIsAvailable()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsTrue(rm.AddTaxiToRank(new Taxi(2), 1));
-        //}
+        // Currently passing by default due to the everlasting failure of the previous test
+        [TestMethod]
+        public void _17_AddTaxiToRankReturnsTrueWhenSpaceIsAvailable()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsTrue(rm.AddTaxiToRank(new Taxi(2), 1));
+        }
 
         //[TestMethod]
         //public void _18_FrontTaxiInRankTakesFareReturnsCorrectTaxi()

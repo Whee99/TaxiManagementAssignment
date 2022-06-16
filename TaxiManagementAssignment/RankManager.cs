@@ -21,10 +21,20 @@ namespace TaxiManagementAssignment
 
 		public bool AddTaxiToRank(Taxi t, int rankId)
 		{ // start of AddTaxiToRank
-			if (t.Rank == ranks[rankId]) {
+			// Check if rank exists or not
+			if (ranks.ContainsKey(rankId) == false) {
 				return false;
 			}
-			else {
+			else if (t.Rank == ranks[rankId]) {
+				return false;
+			}
+			else if (ranks.ContainsValue(t.Rank)) {
+				return false;
+            }
+            else if (t.Destination.Length > 0) {
+				return false;
+			}
+            else {
 				t.Rank = this.ranks[rankId];
 				return true;
 			}

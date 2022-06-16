@@ -34,12 +34,10 @@ namespace TaxiManagementAssignment
 
         public Taxi FrontTaxiTakesFare(string destination, double agreedPrice)
         { // start of FrontTaxiTakesFare
-            if (TaxiSpace.Count == 0)
-            {
+            if (TaxiSpace.Count == 0) {
                 return null;
             }
-            else
-            {
+            else {
                 Taxi t = TaxiSpace[0];
                 TaxiSpace.RemoveAt(0);
                 numberOfTaxiSpaces++;

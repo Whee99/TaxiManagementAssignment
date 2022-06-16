@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
+//using System.Linq;
 
 namespace TaxiManagementAssignment
 { // start of namespace
@@ -21,11 +21,11 @@ namespace TaxiManagementAssignment
 
 		public bool AddTaxiToRank(Taxi t, int rankId)
         {
-			if (ranks.ElementAt((rankId-1)).Value.TaxiSpace.Contains(t)) {
+			if (ranks[rankId].TaxiSpace.Contains(t)) {
 				return false;
 			}
 			else {
-				t.Rank.AddTaxi(new Taxi(rankId));
+				//t.Rank.AddTaxi(new Taxi(rankId));
 				return true;
 			}
 		}
@@ -40,7 +40,7 @@ namespace TaxiManagementAssignment
 			}
 		} // end of FindRank
 
-
 	} // end of class RankManager
+
 } // end of namespace
 

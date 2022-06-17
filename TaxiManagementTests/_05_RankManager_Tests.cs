@@ -146,7 +146,6 @@ namespace TaxiManagementTests
             Assert.IsFalse(rm.AddTaxiToRank(t, 1));
         }
 
-        // STILL FAILS?!?!?!?!?!?!????
         [TestMethod]
         public void _16_AddTaxiToRankReturnsFalseWhenSpaceIsNotAvailable()
         {
@@ -156,7 +155,6 @@ namespace TaxiManagementTests
             Assert.IsFalse(rm.AddTaxiToRank(new Taxi(3), 2));
         }
 
-        // Currently passing by default due to the everlasting failure of the previous test
         [TestMethod]
         public void _17_AddTaxiToRankReturnsTrueWhenSpaceIsAvailable()
         {

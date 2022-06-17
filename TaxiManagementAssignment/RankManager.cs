@@ -35,8 +35,9 @@ namespace TaxiManagementAssignment
 				return false;
 			}
             else {
-				t.Rank = this.ranks[rankId];
-				return true;
+				return ranks[rankId].AddTaxi(t);
+				//t.Rank = this.ranks[rankId];
+				//return true;
 			}
 		} // end of AddTaxiToRank
 

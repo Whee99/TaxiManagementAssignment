@@ -99,7 +99,6 @@ namespace TaxiManagementTests
             }
         }
 
-        // TO DO
         [TestMethod]
         public void _11_SetRankChangesRankWhenDestinationIsEmpty()
         {
@@ -109,7 +108,6 @@ namespace TaxiManagementTests
             Assert.AreEqual(r, t.Rank);
         }
 
-        // TO DO
         [TestMethod]
         public void _12_SetRankChangesLocationToInRankWhenDestinationIsEmpty()
         {

@@ -6,7 +6,7 @@ namespace TaxiManagementAssignment
         public int taxiNum { get; set; }
         public int rankId { get; set; }
 
-        public JoinTransaction(DateTime transactionDatetype, int taxinum, int rankid) : base("Join", transactionDatetype)
+        public JoinTransaction(DateTime transactionDatetime, int taxinum, int rankid) : base("Join", transactionDatetime)
         { // start of JoinTransaction
             taxiNum = taxinum;
             rankId = rankid;

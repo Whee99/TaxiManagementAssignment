@@ -11,12 +11,12 @@ namespace TaxiManagementAssignment
         public Taxi CreateTaxi(int taxiNum)
         {
             Taxi x = new Taxi(taxiNum);
-            int Number = taxiNum;
-            if (taxis.GetValueOrDefault(Number) == default) {
-                taxis.Add(Number, x);
+            //int Number = taxiNum;
+            if (taxis.GetValueOrDefault(taxiNum) == default) {
+                taxis.Add(taxiNum, x);
             }
             else {
-                return taxis.GetValueOrDefault(Number);
+                return taxis.GetValueOrDefault(taxiNum);
             }
             return x;
         }

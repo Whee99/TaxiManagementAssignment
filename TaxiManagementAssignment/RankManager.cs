@@ -36,10 +36,21 @@ namespace TaxiManagementAssignment
 			}
             else {
 				return ranks[rankId].AddTaxi(t);
-				//t.Rank = this.ranks[rankId];
-				//return true;
 			}
 		} // end of AddTaxiToRank
+
+		public Taxi FrontTaxiInRankTakesFare(int rankId, string destination, double agreedPrice)
+		{ // start of FrontTaxiInRankTakesFare
+			if (ranks.ContainsKey(rankId) == false) {
+				return null;
+			}
+			else if (ranks[rankId].TaxiSpace.Count == 0) {
+				return null;
+			}
+            else {
+				return ranks[rankId].FrontTaxiTakesFare(destination, agreedPrice);
+			}
+		} // end of FrontTaxiInRankTakesFare
 
 		public Rank FindRank(int rankId)
 		{ // start of FindRank

@@ -162,28 +162,28 @@ namespace TaxiManagementTests
             Assert.IsTrue(rm.AddTaxiToRank(new Taxi(2), 1));
         }
 
-        //[TestMethod]
-        //public void _18_FrontTaxiInRankTakesFareReturnsCorrectTaxi()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Taxi t = new Taxi(2);
-        //    rm.AddTaxiToRank(t, 1);
-        //    rm.AddTaxiToRank(new Taxi(5), 1);
-        //    Assert.AreEqual(t, rm.FrontTaxiInRankTakesFare(1, "Anywhere", 1.23));
-        //}
+        [TestMethod]
+        public void _18_FrontTaxiInRankTakesFareReturnsCorrectTaxi()
+        {
+            RankManager rm = new RankManager();
+            Taxi t = new Taxi(2);
+            rm.AddTaxiToRank(t, 1);
+            rm.AddTaxiToRank(new Taxi(5), 1);
+            Assert.AreEqual(t, rm.FrontTaxiInRankTakesFare(1, "Anywhere", 1.23));
+        }
 
-        //[TestMethod]
-        //public void _19_FrontTaxiInRankTakesFareReturnsNullWhenRankIsEmpty()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsNull(rm.FrontTaxiInRankTakesFare(1, "Anywhere", 1.23));
-        //}
+        [TestMethod]
+        public void _19_FrontTaxiInRankTakesFareReturnsNullWhenRankIsEmpty()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsNull(rm.FrontTaxiInRankTakesFare(1, "Anywhere", 1.23));
+        }
 
-        //[TestMethod]
-        //public void _20_FrontTaxiInRankTakesFareReturnsNullWhenRankNonexistent()
-        //{
-        //    RankManager rm = new RankManager();
-        //    Assert.IsNull(rm.FrontTaxiInRankTakesFare(4, "Anywhere", 1.23));
-        //}
+        [TestMethod]
+        public void _20_FrontTaxiInRankTakesFareReturnsNullWhenRankNonexistent()
+        {
+            RankManager rm = new RankManager();
+            Assert.IsNull(rm.FrontTaxiInRankTakesFare(4, "Anywhere", 1.23));
+        }
     }
 }

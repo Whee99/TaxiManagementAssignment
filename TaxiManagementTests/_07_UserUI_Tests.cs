@@ -123,7 +123,6 @@ namespace TaxiManagementTests
             Assert.AreEqual("LeaveTransaction", trm.GetAllTransactions()[1].GetType().Name);
         }
 
-        // CONFUSED?!?!?!?!???
         [TestMethod]
         public void _09_TaxiLeavesRankDoesNotCreateLeaveTransactionWhenTaxiDoesNotLeaveRank()
         {
@@ -139,127 +138,127 @@ namespace TaxiManagementTests
             Assert.AreEqual(2, trm.GetAllTransactions().Count);
         }
 
-        //[TestMethod]
-        //public void _10_TaxiLeavesRankReturnsCorrectMessageWhenTaxiLeavesRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _10_TaxiLeavesRankReturnsCorrectMessageWhenTaxiLeavesRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
+            ui.TaxiJoinsRank(11, 1);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has left rank 1 to take a fare to Somewhere for £1.23.");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has left rank 1 to take a fare to Somewhere for £1.23.");
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiLeavesRank(1, "Somewhere", 1.23));
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiLeavesRank(1, "Somewhere", 1.23));
+        }
 
-        //[TestMethod]
-        //public void _11_TaxiLeavesRankReturnsCorrectMessageWhenTaxiDoesNotLeaveRank()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _11_TaxiLeavesRankReturnsCorrectMessageWhenTaxiDoesNotLeaveRank()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi has not left rank 1.");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi has not left rank 1.");
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiLeavesRank(1, "Somewhere", 1.23));
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiLeavesRank(1, "Somewhere", 1.23));
+        }
 
-        //[TestMethod]
-        //public void _12_TaxiDropsFareReturnsCorrectMessageWhenTaxiDoesNotDropFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _12_TaxiDropsFareReturnsCorrectMessageWhenTaxiDoesNotDropFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
+            ui.TaxiJoinsRank(11, 1);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has not dropped its fare.");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has not dropped its fare.");
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiDropsFare(11, false));
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiDropsFare(11, false));
+        }
 
-        //[TestMethod]
-        //public void _13_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasPaid()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _13_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasPaid()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has dropped its fare and the price was paid.");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has dropped its fare and the price was paid.");
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiDropsFare(11, true));
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiDropsFare(11, true));
+        }
 
-        //[TestMethod]
-        //public void _14_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasNotPaid()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _14_TaxiDropsFareReturnsCorrectMessageWhenTaxiDropsFareAndPriceWasNotPaid()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Taxi 11 has dropped its fare and the price was not paid.");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Taxi 11 has dropped its fare and the price was not paid.");
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.TaxiDropsFare(11, false));
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.TaxiDropsFare(11, false));
+        }
 
-        //[TestMethod]
-        //public void _15_TaxiDropsFareCreatesDropTransactionWhenTaxiDropsFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _15_TaxiDropsFareCreatesDropTransactionWhenTaxiDropsFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiDropsFare(11, true);
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiDropsFare(11, true);
 
-        //    Assert.AreEqual("DropTransaction", trm.GetAllTransactions()[2].GetType().Name);
-        //}
+            Assert.AreEqual("DropTransaction", trm.GetAllTransactions()[2].GetType().Name);
+        }
 
-        //[TestMethod]
-        //public void _16_TaxiDropsFareDoesNotCreateDropTransactionWhenTaxiDoesNotDropFare()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _16_TaxiDropsFareDoesNotCreateDropTransactionWhenTaxiDoesNotDropFare()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(11, 1);
-        //    ui.TaxiDropsFare(11, true);
+            ui.TaxiJoinsRank(11, 1);
+            ui.TaxiDropsFare(11, true);
 
-        //    Assert.AreEqual(1, trm.GetAllTransactions().Count);
-        //}
+            Assert.AreEqual(1, trm.GetAllTransactions().Count);
+        }
 
         //[TestMethod]
         //public void _17_ViewTaxiLocationsReturnsCorrectStringsWhenThereAreNoTaxis()

@@ -10,8 +10,8 @@ namespace TaxiManagementAssignment
         public TaxiManager taxiMgr;
         public TransactionManager transactionMgr;
 
-        public int taxinum;
-        public int rankid;
+        public int taxinum; // Need to ask if this is allowed
+        public int rankid; // Need to ask if this is allowed
 
         public UserUI(RankManager rkMgr, TaxiManager txMgr, TransactionManager trMgr)
         { // start of UserUI
@@ -40,9 +40,33 @@ namespace TaxiManagementAssignment
         { // start of TaxiLeavesRank
             List <string> leaveLog = new List<string>();
             Taxi t = taxiMgr.FindTaxi(taxinum);
-            transactionMgr.RecordLeave(rankId, t);
+            if (rankMgr.FrontTaxiInRankTakesFare(rankId, destination, agreedPrice) != null) {
+                transactionMgr.RecordLeave(rankId, t);
+                leaveLog.Add($"Taxi {taxinum} has left rank {rankId} to take a fare to {destination} for £{agreedPrice}.");
+            }
+            else {
+                leaveLog.Add($"Taxi has not left rank {rankId}.");
+            }
             return leaveLog;
         } // end of TaxiLeavesRank
+
+        public List<string> TaxiDropsFare (int taxiNum, bool pricePaid)
+        { // start of TaxiDropsFare
+            Taxi t = new Taxi(taxiNum);
+            List<string> dropLog = new List<string>();
+            t.DropFare(pricePaid);
+            if (pricePaid == true) {
+                transactionMgr.RecordDrop(taxiNum, pricePaid);
+                dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
+            }
+            else if (pricePaid == false) {
+                dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
+            }
+            else if (t.GetTotalMoneyPaid() == 0) {
+                dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
+            }
+            return dropLog;
+        } // end of TaxiDropsFare
 
     } // end of class UserUI
 } // end of namespace

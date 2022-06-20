@@ -26,6 +26,7 @@ namespace TaxiManagementAssignment
             List<string> joinLog = new List<string>();
             Taxi t = taxiMgr.CreateTaxi(taxiNum);
             //rankMgr.AddTaxiToRank(t, rankId);
+
             if (rankMgr.AddTaxiToRank(t, rankId) == false) {
                 joinLog.Add($"Taxi {taxiNum} has not joined rank {rankId}.");
             }
@@ -33,6 +34,7 @@ namespace TaxiManagementAssignment
                 joinLog.Add($"Taxi {taxiNum} has joined rank {rankId}.");
                 transactionMgr.RecordJoin(taxiNum, rankId);
             }
+
             return joinLog;
         } // end of TaxiJoinsRank
 
@@ -40,31 +42,38 @@ namespace TaxiManagementAssignment
         { // start of TaxiLeavesRank
             List <string> leaveLog = new List<string>();
             Taxi t = taxiMgr.FindTaxi(taxinum);
+
             if (rankMgr.FrontTaxiInRankTakesFare(rankId, destination, agreedPrice) != null) {
                 transactionMgr.RecordLeave(rankId, t);
                 leaveLog.Add($"Taxi {taxinum} has left rank {rankId} to take a fare to {destination} for £{agreedPrice}.");
+                taxiMgr.taxis.Remove(taxinum);
             }
             else {
                 leaveLog.Add($"Taxi has not left rank {rankId}.");
             }
+
             return leaveLog;
         } // end of TaxiLeavesRank
 
         public List<string> TaxiDropsFare (int taxiNum, bool pricePaid)
         { // start of TaxiDropsFare
-            Taxi t = new Taxi(taxiNum);
+            //Taxi t = taxiMgr.FindTaxi(taxinum);
             List<string> dropLog = new List<string>();
-            t.DropFare(pricePaid);
-            if (pricePaid == true) {
-                transactionMgr.RecordDrop(taxiNum, pricePaid);
-                dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
+
+            if (taxiMgr.FindTaxi(taxiNum) == null) {
+                if (pricePaid == true) {
+                    //t.DropFare(pricePaid);
+                    transactionMgr.RecordDrop(taxiNum, pricePaid);
+                    dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
+                }
+                else {
+                    dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
+                }
             }
-            else if (pricePaid == false) {
+            else {
                 dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
             }
-            else if (t.GetTotalMoneyPaid() == 0) {
-                dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
-            }
+
             return dropLog;
         } // end of TaxiDropsFare
 

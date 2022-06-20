@@ -51,7 +51,6 @@ namespace TaxiManagementTests
             Assert.AreEqual(t, r.FrontTaxiTakesFare("Somewhere", 1.23));
         }
 
-        // ISSUE: Confused???
         [TestMethod]
         public void _06_FrontTaxiTakesFareReturnsCorrectTaxiWhenRankIsNotEmpty()
         {

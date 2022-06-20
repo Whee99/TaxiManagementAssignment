@@ -15,8 +15,8 @@ namespace TaxiManagementAssignment
 
         public void RecordJoin(int taxiNum, int rankId)
         { // start of RecordJoin
-            Transaction t = new JoinTransaction(DateTime.Now, taxiNum, rankId);
-            transactions.Add(t);
+            Transaction j = new JoinTransaction(DateTime.Now, taxiNum, rankId);
+            transactions.Add(j);
         } // end of RecordJoin
 
         public void RecordLeave(int rankId, Taxi t)

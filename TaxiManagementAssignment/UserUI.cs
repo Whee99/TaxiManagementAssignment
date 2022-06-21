@@ -90,29 +90,53 @@ namespace TaxiManagementAssignment
             if (listoftaxis.Count == 0) {
                 taxiLocations.Add("No taxis");
             }
-            else {
-                foreach (Taxi t in listoftaxis.Values) {
-                    //taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
+            else { // start of outermost else
+                foreach (Taxi t in listoftaxis.Values) { // start of foreach
                     if (t.Destination.Length > 0) {
                         taxiLocations.Add($"Taxi {t.Number} is on the road to {t.Destination}");
                     }
-                    else if (t.Destination.Length == 0) {
-                        //taxiLocations.Add($"Taxi {t.Number} is on the road");
+                    else if (t.Destination.Length == 0) { // start of else if
                         if (t.Location == "on the road") {
                             taxiLocations.Add($"Taxi {t.Number} is on the road");
                         }
                         else {
                             taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
                         }
-                    }
-                    //else {
-                    //    taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
-                    //}
-                }
-            }
+                    } // end of else if
+                } // end of foreach
+            } // end of outermost else
 
             return taxiLocations;
         } // end of ViewTaxiLocations
+
+        public List<string> ViewFinancialReport()
+        {
+            SortedDictionary<int, Taxi> listoftaxis = taxiMgr.GetAllTaxis();
+            List<string> financialLog = new List<string>();
+
+            financialLog.Add("Financial report");
+            financialLog.Add("================");
+
+            if (listoftaxis.Count == 0)
+            {
+                financialLog.Add("No taxis, so no money taken");
+            }
+            else
+            { // start of outermost else
+                foreach (Taxi t in listoftaxis.Values)
+                { // start of foreach
+                    if (t.Destination.Length > 0)
+                    {
+                        financialLog.Add($"Taxi {t.Number}      0.00");
+                        financialLog.Add("           ======");
+                        financialLog.Add("Total:       0.00");
+                        financialLog.Add("           ======");
+                    }
+                } // end of foreach
+            } // end of outermost else
+
+            return financialLog;
+        }
 
     } // end of class UserUI
 } // end of namespace

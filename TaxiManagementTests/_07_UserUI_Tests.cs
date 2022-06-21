@@ -445,38 +445,38 @@ namespace TaxiManagementTests
                 ui.ViewFinancialReport());
         }
 
-        //[TestMethod]
-        //public void _23_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenNoMoney()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _23_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenNoMoney()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
+            ui.TaxiJoinsRank(12, 1);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Financial report");
-        //    expectedLines.Add("================");
-        //    expectedLines.Add("Taxi 12      0.00");
-        //    expectedLines.Add("           ======");
-        //    expectedLines.Add("Total:       0.00");
-        //    expectedLines.Add("           ======");
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Financial report");
+            expectedLines.Add("================");
+            expectedLines.Add("Taxi 12      0.00");
+            expectedLines.Add("           ======");
+            expectedLines.Add("Total:       0.00");
+            expectedLines.Add("           ======");
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in expectedLines)
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    //foreach (string s in ui.ViewFinancialReport())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in ui.ViewFinancialReport())
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewFinancialReport());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewFinancialReport());
+        }
 
         //[TestMethod]
         //public void _24_ViewFinancialReportReturnsCorrectStringsWhenOneTaxiHasTakenMoneyFromOneFare()

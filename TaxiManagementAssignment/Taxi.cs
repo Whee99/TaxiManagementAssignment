@@ -20,11 +20,11 @@ namespace TaxiManagementAssignment
             get { return rank; }
             set
             {
-                if (Destination.Length > 0) {
-                    throw new Exception("Cannot join rank if fare has not been dropped");
-                }
                 if (value is null) {
                     throw new Exception("Rank cannot be null");
+                }
+                else if (Destination.Length > 0) {
+                    throw new Exception("Cannot join rank if fare has not been dropped");
                 }
                 else {
                     rank = value;

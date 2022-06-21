@@ -10,8 +10,7 @@ namespace TaxiManagementAssignment
         public TaxiManager taxiMgr;
         public TransactionManager transactionMgr;
 
-        public int taxinum; // Need to ask if this is allowed
-        public int rankid; // Need to ask if this is allowed
+        //public int taxinum; // Need to ask if this is allowed
 
         public UserUI(RankManager rkMgr, TaxiManager txMgr, TransactionManager trMgr)
         { // start of UserUI
@@ -22,7 +21,7 @@ namespace TaxiManagementAssignment
 
         public List<string> TaxiJoinsRank (int taxiNum, int rankId)
         { // start of TaxiJoinsRank
-            taxinum = taxiNum;
+            //taxinum = taxiNum;
             List<string> joinLog = new List<string>();
             Taxi t = taxiMgr.CreateTaxi(taxiNum);
             //rankMgr.AddTaxiToRank(t, rankId);
@@ -41,12 +40,15 @@ namespace TaxiManagementAssignment
         public List<string> TaxiLeavesRank (int rankId, string destination, double agreedPrice)
         { // start of TaxiLeavesRank
             List <string> leaveLog = new List<string>();
-            Taxi t = taxiMgr.FindTaxi(taxinum);
+            //Taxi t = rankMgr.ranks[rankId].TaxiSpace[0];
+            //Taxi t = taxiMgr.FindTaxi(taxinum);
 
-            if (rankMgr.FrontTaxiInRankTakesFare(rankId, destination, agreedPrice) != null) {
+            Taxi t = rankMgr.FrontTaxiInRankTakesFare(rankId, destination, agreedPrice);
+
+            if (t != null) {
                 transactionMgr.RecordLeave(rankId, t);
-                leaveLog.Add($"Taxi {taxinum} has left rank {rankId} to take a fare to {destination} for £{agreedPrice}.");
-                taxiMgr.taxis.Remove(taxinum);
+                leaveLog.Add($"Taxi {t.Number} has left rank {rankId} to take a fare to {destination} for £{agreedPrice}.");
+                //taxiMgr.taxis.Remove(t.Number);
             }
             else {
                 leaveLog.Add($"Taxi has not left rank {rankId}.");
@@ -59,10 +61,14 @@ namespace TaxiManagementAssignment
         { // start of TaxiDropsFare
             //Taxi t = taxiMgr.FindTaxi(taxinum);
             List<string> dropLog = new List<string>();
+            Taxi t = taxiMgr.FindTaxi(taxiNum);
+            t.DropFare(pricePaid);
 
-            if (taxiMgr.FindTaxi(taxiNum) == null) {
+            if (t.Location == "on the road") { 
+                dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
+            }
+            else {
                 if (pricePaid == true) {
-                    //t.DropFare(pricePaid);
                     transactionMgr.RecordDrop(taxiNum, pricePaid);
                     dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
                 }
@@ -70,12 +76,34 @@ namespace TaxiManagementAssignment
                     dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
                 }
             }
-            else {
-                dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
-            }
 
             return dropLog;
         } // end of TaxiDropsFare
+
+        public List<string> ViewTaxiLocations()
+        { // start of ViewTaxiLocations
+            SortedDictionary<int,Taxi> listoftaxis = taxiMgr.GetAllTaxis();
+            List<string> taxiLocations = new List<string>();
+
+            taxiLocations.Add("Taxi locations");
+            taxiLocations.Add("==============");
+            if (listoftaxis.Count == 0) {
+                taxiLocations.Add("No taxis");
+            }
+            else {
+                foreach (Taxi t in listoftaxis.Values) {
+                    //taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
+                    if (t.Destination.Length > 0) {
+                        taxiLocations.Add($"Taxi {t.Number} is on the road to {t.Destination}");
+                    }
+                    else {
+                        taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
+                    }
+                }
+            }
+
+            return taxiLocations;
+        } // end of ViewTaxiLocations
 
     } // end of class UserUI
 } // end of namespace

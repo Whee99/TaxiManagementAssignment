@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TaxiManagementAssignment;
 
-// Line 6 and 7 are added: Confirmation Pending...
-// Line 15 is altered: Originally "class _06_TransactionManager_Tests" and no[TestClass] present
-
 namespace TaxiManagementTests
 {
     [TestClass]

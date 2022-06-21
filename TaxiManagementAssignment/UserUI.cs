@@ -64,7 +64,7 @@ namespace TaxiManagementAssignment
             Taxi t = taxiMgr.FindTaxi(taxiNum);
             t.DropFare(pricePaid);
 
-            if (t.Location == "on the road") { 
+            if (t.Location == "in rank") { 
                 dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
             }
             else {
@@ -96,9 +96,18 @@ namespace TaxiManagementAssignment
                     if (t.Destination.Length > 0) {
                         taxiLocations.Add($"Taxi {t.Number} is on the road to {t.Destination}");
                     }
-                    else {
-                        taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
+                    else if (t.Destination.Length == 0) {
+                        //taxiLocations.Add($"Taxi {t.Number} is on the road");
+                        if (t.Location == "on the road") {
+                            taxiLocations.Add($"Taxi {t.Number} is on the road");
+                        }
+                        else {
+                            taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
+                        }
                     }
+                    //else {
+                    //    taxiLocations.Add($"Taxi {t.Number} is in rank {t.Rank.Id}");
+                    //}
                 }
             }
 

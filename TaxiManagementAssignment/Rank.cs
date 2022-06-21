@@ -39,6 +39,7 @@ namespace TaxiManagementAssignment
             }
             else {
                 Taxi t = TaxiSpace[0];
+                t.AddFare(destination, agreedPrice);
                 TaxiSpace.RemoveAt(0);
                 numberOfTaxiSpaces++;
                 return t;

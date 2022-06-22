@@ -19,10 +19,9 @@ namespace TaxiManagementAssignment
 
         public List<string> TaxiJoinsRank (int taxiNum, int rankId)
         { // start of TaxiJoinsRank
-            //taxinum = taxiNum;
             List<string> joinLog = new List<string>();
+
             Taxi t = taxiMgr.CreateTaxi(taxiNum);
-            //rankMgr.AddTaxiToRank(t, rankId);
 
             if (rankMgr.AddTaxiToRank(t, rankId) == false) {
                 joinLog.Add($"Taxi {taxiNum} has not joined rank {rankId}.");
@@ -38,15 +37,12 @@ namespace TaxiManagementAssignment
         public List<string> TaxiLeavesRank (int rankId, string destination, double agreedPrice)
         { // start of TaxiLeavesRank
             List <string> leaveLog = new List<string>();
-            //Taxi t = rankMgr.ranks[rankId].TaxiSpace[0];
-            //Taxi t = taxiMgr.FindTaxi(taxinum);
 
             Taxi t = rankMgr.FrontTaxiInRankTakesFare(rankId, destination, agreedPrice);
 
             if (t != null) {
                 transactionMgr.RecordLeave(rankId, t);
                 leaveLog.Add($"Taxi {t.Number} has left rank {rankId} to take a fare to {destination} for £{agreedPrice}.");
-                //taxiMgr.taxis.Remove(t.Number);
             }
             else {
                 leaveLog.Add($"Taxi has not left rank {rankId}.");
@@ -57,7 +53,6 @@ namespace TaxiManagementAssignment
 
         public List<string> TaxiDropsFare (int taxiNum, bool pricePaid)
         { // start of TaxiDropsFare
-            //Taxi t = taxiMgr.FindTaxi(taxinum);
             List<string> dropLog = new List<string>();
             Taxi t = taxiMgr.FindTaxi(taxiNum);
             t.DropFare(pricePaid);

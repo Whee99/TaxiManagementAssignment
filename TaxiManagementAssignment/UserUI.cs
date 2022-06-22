@@ -91,11 +91,14 @@ namespace TaxiManagementAssignment
                 taxiLocations.Add("No taxis");
             }
             else { // start of outermost else
-                foreach (Taxi t in listoftaxis.Values) { // start of foreach
-                    if (t.Destination.Length > 0) {
+                foreach (Taxi t in listoftaxis.Values)
+                { // start of foreach
+                    if (t.Destination.Length > 0)
+                    {
                         taxiLocations.Add($"Taxi {t.Number} is on the road to {t.Destination}");
                     }
-                    else if (t.Destination.Length == 0) { // start of else if
+                    else if (t.Destination.Length == 0)
+                    { // start of else if
                         if (t.Location == "on the road") {
                             taxiLocations.Add($"Taxi {t.Number} is on the road");
                         }
@@ -110,9 +113,11 @@ namespace TaxiManagementAssignment
         } // end of ViewTaxiLocations
 
         public List<string> ViewFinancialReport()
-        {
+        { // start of ViewFinancialReport
             SortedDictionary<int, Taxi> listoftaxis = taxiMgr.GetAllTaxis();
             List<string> financialLog = new List<string>();
+
+            double moneyPaid = 0;
 
             financialLog.Add("Financial report");
             financialLog.Add("================");
@@ -125,18 +130,26 @@ namespace TaxiManagementAssignment
             { // start of outermost else
                 foreach (Taxi t in listoftaxis.Values)
                 { // start of foreach
-                    if (t.Destination.Length > 0)
+                    if (t.Destination.Length == 0)
                     {
-                        financialLog.Add($"Taxi {t.Number}      0.00");
-                        financialLog.Add("           ======");
-                        financialLog.Add("Total:       0.00");
-                        financialLog.Add("           ======");
+                        financialLog.Add(string.Format($"Taxi {t.Number}      {t.TotalMoneyPaid:0.00}" ));
+                        moneyPaid += t.TotalMoneyPaid;
                     }
                 } // end of foreach
+                financialLog.Add("           ======");
+                financialLog.Add(string.Format($"Total:       {moneyPaid:0.00}"));
+                financialLog.Add("           ======");
             } // end of outermost else
 
             return financialLog;
-        }
+        } // end of ViewFinancialReport
+
+        public List<string> ViewTransactionLog()
+        { // start of ViewTransactionLog
+            List<string> transactionLog = new List<string>();
+
+            return transactionLog;
+        } // end of ViewTransactionLog
 
     } // end of class UserUI
 } // end of namespace

@@ -53,7 +53,7 @@ namespace TaxiManagementAssignment
                 TotalMoneyPaid = 0;
             }
             else {
-                TotalMoneyPaid = CurrentFare;
+                TotalMoneyPaid += CurrentFare;
                 Destination = "";
                 CurrentFare = 0;
             }

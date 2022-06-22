@@ -10,8 +10,6 @@ namespace TaxiManagementAssignment
         public TaxiManager taxiMgr;
         public TransactionManager transactionMgr;
 
-        //public int taxinum; // Need to ask if this is allowed
-
         public UserUI(RankManager rkMgr, TaxiManager txMgr, TransactionManager trMgr)
         { // start of UserUI
             rankMgr = rkMgr;
@@ -73,6 +71,7 @@ namespace TaxiManagementAssignment
                     dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
                 }
                 else {
+                    transactionMgr.RecordDrop(taxiNum, pricePaid);
                     dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
                 }
             }
@@ -82,19 +81,19 @@ namespace TaxiManagementAssignment
 
         public List<string> ViewTaxiLocations()
         { // start of ViewTaxiLocations
-            SortedDictionary<int,Taxi> listoftaxis = taxiMgr.GetAllTaxis();
+            SortedDictionary<int,Taxi> ListofTaxis = taxiMgr.GetAllTaxis();
             List<string> taxiLocations = new List<string>();
 
             taxiLocations.Add("Taxi locations");
             taxiLocations.Add("==============");
-            if (listoftaxis.Count == 0) {
+            if (ListofTaxis.Count == 0) {
                 taxiLocations.Add("No taxis");
             }
-            else { // start of outermost else
-                foreach (Taxi t in listoftaxis.Values)
+            else
+            { // start of outermost else
+                foreach (Taxi t in ListofTaxis.Values)
                 { // start of foreach
-                    if (t.Destination.Length > 0)
-                    {
+                    if (t.Destination.Length > 0) {
                         taxiLocations.Add($"Taxi {t.Number} is on the road to {t.Destination}");
                     }
                     else if (t.Destination.Length == 0)
@@ -114,7 +113,8 @@ namespace TaxiManagementAssignment
 
         public List<string> ViewFinancialReport()
         { // start of ViewFinancialReport
-            SortedDictionary<int, Taxi> listoftaxis = taxiMgr.GetAllTaxis();
+            SortedDictionary<int, Taxi> ListofTaxis = taxiMgr.GetAllTaxis();
+
             List<string> financialLog = new List<string>();
 
             double moneyPaid = 0;
@@ -122,13 +122,13 @@ namespace TaxiManagementAssignment
             financialLog.Add("Financial report");
             financialLog.Add("================");
 
-            if (listoftaxis.Count == 0)
+            if (ListofTaxis.Count == 0)
             {
                 financialLog.Add("No taxis, so no money taken");
             }
             else
             { // start of outermost else
-                foreach (Taxi t in listoftaxis.Values)
+                foreach (Taxi t in ListofTaxis.Values)
                 { // start of foreach
                     if (t.Destination.Length == 0)
                     {
@@ -147,6 +147,22 @@ namespace TaxiManagementAssignment
         public List<string> ViewTransactionLog()
         { // start of ViewTransactionLog
             List<string> transactionLog = new List<string>();
+
+            List<Transaction> ListofTransactions = transactionMgr.GetAllTransactions();
+
+            transactionLog.Add("Transaction report");
+            transactionLog.Add("==================");
+
+            if (ListofTransactions.Count == 0) {
+                transactionLog.Add("No transactions");
+            }
+            else
+            {
+                foreach(Transaction x in ListofTransactions)
+                {
+                    transactionLog.Add(x.ToString());
+                }
+            }
 
             return transactionLog;
         } // end of ViewTransactionLog

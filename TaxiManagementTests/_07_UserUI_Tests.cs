@@ -625,161 +625,161 @@ namespace TaxiManagementTests
                 ui.ViewTransactionLog());
         }
 
-        //[TestMethod]
-        //public void _28_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinTransaction()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _28_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinTransaction()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
+            ui.TaxiJoinsRank(12, 1);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Transaction report");
-        //    expectedLines.Add("==================");
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Join      - Taxi 12 in rank 1",
-        //            trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Transaction report");
+            expectedLines.Add("==================");
+            expectedLines.Add(
+                string.Format(
+                    "{0} Join      - Taxi 12 in rank 1",
+                    trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in expectedLines)
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    //foreach (string s in ui.ViewTransactionLog())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in ui.ViewTransactionLog())
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTransactionLog());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTransactionLog());
+        }
 
-        //[TestMethod]
-        //public void _29_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinAndOneLeaveTransaction()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _29_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinAndOneLeaveTransaction()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Transaction report");
-        //    expectedLines.Add("==================");
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Join      - Taxi 12 in rank 1",
-        //            trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
-        //            trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Transaction report");
+            expectedLines.Add("==================");
+            expectedLines.Add(
+                string.Format(
+                    "{0} Join      - Taxi 12 in rank 1",
+                    trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            expectedLines.Add(
+                string.Format(
+                    "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
+                    trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in expectedLines)
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    //foreach (string s in ui.ViewTransactionLog())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in ui.ViewTransactionLog())
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTransactionLog());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTransactionLog());
+        }
 
-        //[TestMethod]
-        //public void _30_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinOneLeaveAndOneDropTransactionWithPricePaid()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _30_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinOneLeaveAndOneDropTransactionWithPricePaid()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiDropsFare(12, true);
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiDropsFare(12, true);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Transaction report");
-        //    expectedLines.Add("==================");
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Join      - Taxi 12 in rank 1",
-        //            trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
-        //            trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Drop fare - Taxi 12, price was paid",
-        //            trm.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Transaction report");
+            expectedLines.Add("==================");
+            expectedLines.Add(
+                string.Format(
+                    "{0} Join      - Taxi 12 in rank 1",
+                    trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            expectedLines.Add(
+                string.Format(
+                    "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
+                    trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            expectedLines.Add(
+                string.Format(
+                    "{0} Drop fare - Taxi 12, price was paid",
+                    trm.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in expectedLines)
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    //foreach (string s in ui.ViewTransactionLog())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in ui.ViewTransactionLog())
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTransactionLog());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTransactionLog());
+        }
 
-        //[TestMethod]
-        //public void _31_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinOneLeaveAndOneDropTransactionWithPriceNotPaid()
-        //{
-        //    RankManager rm = new RankManager();
-        //    TaxiManager txm = new TaxiManager();
-        //    TransactionManager trm = new TransactionManager();
-        //    UserUI ui = new UserUI(rm, txm, trm);
+        [TestMethod]
+        public void _31_ViewTransactionLogReturnsCorrectStringsWhenThereIsOneJoinOneLeaveAndOneDropTransactionWithPriceNotPaid()
+        {
+            RankManager rm = new RankManager();
+            TaxiManager txm = new TaxiManager();
+            TransactionManager trm = new TransactionManager();
+            UserUI ui = new UserUI(rm, txm, trm);
 
-        //    ui.TaxiJoinsRank(12, 1);
-        //    ui.TaxiLeavesRank(1, "Somewhere", 1.23);
-        //    ui.TaxiDropsFare(12, false);
+            ui.TaxiJoinsRank(12, 1);
+            ui.TaxiLeavesRank(1, "Somewhere", 1.23);
+            ui.TaxiDropsFare(12, false);
 
-        //    List<string> expectedLines = new List<string>();
-        //    expectedLines.Add("Transaction report");
-        //    expectedLines.Add("==================");
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Join      - Taxi 12 in rank 1",
-        //            trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
-        //            trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
-        //    expectedLines.Add(
-        //        string.Format(
-        //            "{0} Drop fare - Taxi 12, price was not paid",
-        //            trm.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            List<string> expectedLines = new List<string>();
+            expectedLines.Add("Transaction report");
+            expectedLines.Add("==================");
+            expectedLines.Add(
+                string.Format(
+                    "{0} Join      - Taxi 12 in rank 1",
+                    trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            expectedLines.Add(
+                string.Format(
+                    "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
+                    trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
+            expectedLines.Add(
+                string.Format(
+                    "{0} Drop fare - Taxi 12, price was not paid",
+                    trm.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-        //    //foreach (string s in expectedLines)
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in expectedLines)
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    //foreach (string s in ui.ViewTransactionLog())
-        //    //{
-        //    //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-        //    //}
+            foreach (string s in ui.ViewTransactionLog())
+            {
+                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            }
 
-        //    CollectionAssert.AreEqual(
-        //        expectedLines,
-        //        ui.ViewTransactionLog());
-        //}
+            CollectionAssert.AreEqual(
+                expectedLines,
+                ui.ViewTransactionLog());
+        }
     }
 }

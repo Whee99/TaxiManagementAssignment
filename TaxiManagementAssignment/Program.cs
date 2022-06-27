@@ -6,16 +6,6 @@ namespace TaxiManagementAssignment
 { // start of namespace
     public class Program
     { // start of class Program
-        //private int taxiNum;
-        //private int rankId;
-        //private Taxi t;
-
-        //private static RankManager rm = new RankManager();
-        //private static TaxiManager txm = new TaxiManager();
-        //private static TransactionManager trm = new TransactionManager();
-
-        //public UserUI ui = new UserUI(rm, txm, trm);
-
         public static void Main(string[] args)
         { // start of main
             /*
@@ -31,8 +21,8 @@ namespace TaxiManagementAssignment
 
             while (true)
             { // start of while true
-                Console.Write("What do you want to do? Input the corresponding number or 0 to quit:\n" +
-                    "1. Add a taxi\n" + "2. Leave rank\n" + "3. Drop fare\n" +
+                Console.Write("What do you want to do? Input the corresponding number:\n" +
+                   "0. Exit program\n" + "1. Add a taxi\n" + "2. Leave rank\n" + "3. Drop fare\n" +
                 "4. View Financial Report\n" + "5. View Taxi Locations\n" + "6. View Transaction Log\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 if (option == 1)
@@ -116,11 +106,6 @@ namespace TaxiManagementAssignment
             } // end of while true
 
         } // end of main
-
-        //private void DisplayMenu()
-        //{
-        //    Console.WriteLine("What function? ");
-        //}
 
     } // end of class Program
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using TaxiManagementAssignment;
-using System;
 
 namespace TaxiManagementTests
 {
@@ -274,15 +273,15 @@ namespace TaxiManagementTests
             expectedLines.Add("==============");
             expectedLines.Add("No taxis");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTaxiLocations())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -304,15 +303,15 @@ namespace TaxiManagementTests
             expectedLines.Add("==============");
             expectedLines.Add("Taxi 12 is in rank 1");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTaxiLocations())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -335,15 +334,15 @@ namespace TaxiManagementTests
             expectedLines.Add("==============");
             expectedLines.Add("Taxi 12 is on the road to Somewhere");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTaxiLocations())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -367,15 +366,15 @@ namespace TaxiManagementTests
             expectedLines.Add("==============");
             expectedLines.Add("Taxi 12 is on the road");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTaxiLocations())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -402,15 +401,15 @@ namespace TaxiManagementTests
             expectedLines.Add("Taxi 13 is in rank 1");
             expectedLines.Add("Taxi 14 is in rank 2");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTaxiLocations())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTaxiLocations())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -430,15 +429,15 @@ namespace TaxiManagementTests
             expectedLines.Add("================");
             expectedLines.Add("No taxis, so no money taken");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewFinancialReport())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -463,15 +462,15 @@ namespace TaxiManagementTests
             expectedLines.Add("Total:       0.00");
             expectedLines.Add("           ======");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewFinancialReport())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -498,15 +497,15 @@ namespace TaxiManagementTests
             expectedLines.Add("Total:       1.23");
             expectedLines.Add("           ======");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewFinancialReport())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -536,15 +535,15 @@ namespace TaxiManagementTests
             expectedLines.Add("Total:       3.57");
             expectedLines.Add("           ======");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewFinancialReport())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -582,15 +581,15 @@ namespace TaxiManagementTests
             expectedLines.Add("Total:       7.14");
             expectedLines.Add("           ======");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewFinancialReport())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewFinancialReport())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -610,15 +609,15 @@ namespace TaxiManagementTests
             expectedLines.Add("==================");
             expectedLines.Add("No transactions");
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTransactionLog())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTransactionLog())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -643,15 +642,15 @@ namespace TaxiManagementTests
                     "{0} Join      - Taxi 12 in rank 1",
                     trm.GetAllTransactions()[0].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTransactionLog())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTransactionLog())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -681,15 +680,15 @@ namespace TaxiManagementTests
                     "{0} Leave     - Taxi 12 from rank 1 to Somewhere for £1.23",
                     trm.GetAllTransactions()[1].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTransactionLog())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTransactionLog())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -724,15 +723,15 @@ namespace TaxiManagementTests
                     "{0} Drop fare - Taxi 12, price was paid",
                     trm.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTransactionLog())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTransactionLog())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,
@@ -767,15 +766,15 @@ namespace TaxiManagementTests
                     "{0} Drop fare - Taxi 12, price was not paid",
                     trm.GetAllTransactions()[2].TransactionDatetime.ToString("dd/MM/yyyy HH:mm")));
 
-            foreach (string s in expectedLines)
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in expectedLines)
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
-            foreach (string s in ui.ViewTransactionLog())
-            {
-                Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
-            }
+            //foreach (string s in ui.ViewTransactionLog())
+            //{
+            //    Console.WriteLine("'" + s + "' (" + s.Length + ")\n");
+            //}
 
             CollectionAssert.AreEqual(
                 expectedLines,

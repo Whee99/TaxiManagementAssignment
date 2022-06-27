@@ -22,9 +22,10 @@ namespace TaxiManagementAssignment
             while (true)
             { // start of while true
                 Console.Write("What do you want to do?\n\n" +
-                    "1. Add a taxi\n" + "2. Leave rank\n" + "3. Drop fare\n" +
+                "1. Add a taxi\n" + "2. Leave rank\n" + "3. Drop fare\n" +
                 "4. View Financial Report\n" + "5. View Taxi Locations\n" +
-                "6. View Transaction Log\n" + "0. End Program\n\n");
+                "6. View Transaction Log\n\n" + "0. End Program\n\n");
+
                 Console.Write("Please input the corresponding number: ");
                 int option = Convert.ToInt32(Console.ReadLine());
 

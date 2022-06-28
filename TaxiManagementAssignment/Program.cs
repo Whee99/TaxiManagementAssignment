@@ -32,7 +32,7 @@ namespace TaxiManagementAssignment
                 // Option 1: AddTaxi
                 if (option == 1)
                 { // start of AddTaxi
-                    Console.WriteLine("You have selected 'Add a taxi'\n");
+                    Console.WriteLine("\nYou have selected 'Add a taxi'\n");
 
                     Console.Write("Please input a taxi number: ");
                     int taxiNum = Convert.ToInt32(Console.ReadLine());
@@ -40,17 +40,20 @@ namespace TaxiManagementAssignment
                     Console.Write("Please input a rank ID: ");
                     int rankId = Convert.ToInt32(Console.ReadLine());
 
+                    Console.WriteLine("");
+
                     foreach (string x in ui.TaxiJoinsRank(taxiNum, rankId))
                     {
                         Console.WriteLine(x);
-                        Console.WriteLine("");
                     }
+
+                    Console.WriteLine("");
                 } // end of AddTaxi
 
                 // Option 2: LeaveRank
                 else if (option == 2)
                 { // start of LeaveRank
-                    Console.WriteLine("You have selected 'Leave rank'\n");
+                    Console.WriteLine("\nYou have selected 'Leave rank'\n");
 
                     Console.Write("Please enter a rank ID: ");
                     int rankId = Convert.ToInt32(Console.ReadLine());
@@ -61,17 +64,20 @@ namespace TaxiManagementAssignment
                     Console.Write("Please enter the agreed price: ");
                     double agreedPrice = Convert.ToDouble(Console.ReadLine());
 
+                    Console.WriteLine("");
+
                     foreach (string x in ui.TaxiLeavesRank(rankId, destination, agreedPrice))
                     {
                         Console.WriteLine(x);
-                        Console.WriteLine("");
                     }
+
+                    Console.WriteLine("");
                 } // end of LeaveRank
 
                 // Option 3: DropFare
                 else if (option == 3)
                 { // start of DropFare
-                    Console.WriteLine("You have selected 'Drop fare'\n");
+                    Console.WriteLine("\nYou have selected 'Drop fare'\n");
 
                     Console.Write("Please enter a taxi number: ");
                     int taxiNum = Convert.ToInt32(Console.ReadLine());
@@ -79,12 +85,13 @@ namespace TaxiManagementAssignment
                     Console.Write("Please enter 'yes' if price has been paid and 'no' if price has not been paid: ");
                     string priceWasPaid = Console.ReadLine();
 
+                    Console.WriteLine("");
+
                     if (priceWasPaid == "yes") {
                         bool pricePaid = true;
                         foreach (string x in ui.TaxiDropsFare(taxiNum, pricePaid))
                         {
                             Console.WriteLine(x);
-                            Console.WriteLine("");
                         }
                     }
                     else if (priceWasPaid == "no"){
@@ -92,15 +99,16 @@ namespace TaxiManagementAssignment
                         foreach (string x in ui.TaxiDropsFare(taxiNum, pricePaid))
                         {
                             Console.WriteLine(x);
-                            Console.WriteLine("");
                         }
                     }
+
+                    Console.WriteLine("");
                 } // end of Dropfare
 
                 // Option 4: ViewFinancialReport
                 else if (option == 4)
                 { // start of ViewFinancialReport
-                    Console.WriteLine("You have selected 'View Financial Report'\n");
+                    Console.WriteLine("\nYou have selected 'View Financial Report'\n\n");
 
                     foreach (string x in ui.ViewFinancialReport())
                     {
@@ -113,7 +121,7 @@ namespace TaxiManagementAssignment
                 // Option 5: ViewTaxiLocation
                 else if (option == 5)
                 { // start of ViewTaxiLocations
-                    Console.WriteLine("You have selected 'View Taxi Locations'\n");
+                    Console.WriteLine("\nYou have selected 'View Taxi Locations'\n\n");
 
                     foreach (string x in ui.ViewTaxiLocations())
                     {
@@ -126,7 +134,7 @@ namespace TaxiManagementAssignment
                 // Option 6: ViewTransactionLog
                 else if (option == 6)
                 { // start of ViewTransactionLog
-                    Console.WriteLine("You have selected 'View Transaction Log'\n");
+                    Console.WriteLine("\nYou have selected 'View Transaction Log'\n\n");
 
                     foreach (string x in ui.ViewTransactionLog())
                     {
@@ -139,14 +147,14 @@ namespace TaxiManagementAssignment
                 // Option 7: End Program
                 else if (option == 0)
                 {
-                    Console.WriteLine("Program ended");
+                    Console.WriteLine("\nProgram ended");
                     break;
                 }
 
                 // Invalid Input
                 else
                 {
-                    Console.WriteLine("Option unavailable. Please choose again.\n");
+                    Console.WriteLine("\nOption unavailable. Please choose again.\n");
                 }
             } // end of while true
 

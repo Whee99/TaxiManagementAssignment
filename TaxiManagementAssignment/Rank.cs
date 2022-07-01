@@ -21,13 +21,12 @@ namespace TaxiManagementAssignment
 
         public bool AddTaxi(Taxi t)
         { // start of AddTaxi
-            if (numberOfTaxiSpaces == 0) {
+            if (TaxiSpace.Count == numberOfTaxiSpaces) {
                 return false;
             }
             else {
                 t.Rank = this;
                 TaxiSpace.Add(t);
-                numberOfTaxiSpaces--;
                 return true;
             }
         } // end of AddTaxi
@@ -41,7 +40,6 @@ namespace TaxiManagementAssignment
                 Taxi t = TaxiSpace[0];
                 t.AddFare(destination, agreedPrice);
                 TaxiSpace.RemoveAt(0);
-                numberOfTaxiSpaces++;
                 return t;
             }
         } // end of FrontTaxiTakesFare

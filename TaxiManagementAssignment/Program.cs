@@ -21,24 +21,68 @@ namespace TaxiManagementAssignment
 
             while (true)
             { // start of while true
+                int option = 0;
+
                 Console.Write("What do you want to do?\n\n" +
                 "1. Add a taxi\n" + "2. Leave rank\n" + "3. Drop fare\n" +
                 "4. View Financial Report\n" + "5. View Taxi Locations\n" +
                 "6. View Transaction Log\n\n" + "0. End Program\n\n");
 
-                Console.Write("Please input the corresponding number: ");
-                int option = Convert.ToInt32(Console.ReadLine());
+                // makes sure the user inputs a number
+                while (true)
+                {
+                    Console.Write("Please input the corresponding number: ");
+                    string answer = Console.ReadLine();
+
+                    bool isParsable = Int32.TryParse(answer, out option);
+
+                    if (isParsable == false) {
+                        Console.WriteLine("\nUser must input a number\n");
+                    }
+                    else {
+                        break;
+                    }
+                }
 
                 // Option 1: AddTaxi
                 if (option == 1)
                 { // start of AddTaxi
+                    int taxiNum = 0;
+                    int rankId = 0;
+                    
                     Console.WriteLine("\nYou have selected 'Add a taxi'\n");
 
-                    Console.Write("Please input a taxi number: ");
-                    int taxiNum = Convert.ToInt32(Console.ReadLine());
+                    // makes sure the user inputs a number
+                    while (true)
+                    {
+                        Console.Write("Please input a taxi number: ");
+                        string answer = Console.ReadLine();
 
-                    Console.Write("Please input a rank ID: ");
-                    int rankId = Convert.ToInt32(Console.ReadLine());
+                        bool isParsable = Int32.TryParse(answer, out taxiNum);
+
+                        if (isParsable == false) {
+                            Console.WriteLine("\nUser must input a number\n");
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    // makes sure the user inputs a number
+                    while (true)
+                    {
+                        Console.Write("Please input a rank ID: ");
+                        string answer = Console.ReadLine();
+
+                        bool isParsable = Int32.TryParse(answer, out rankId);
+
+                        if (isParsable == false) {
+                            Console.WriteLine("\nUser must input a number\n");
+                        }
+                        else {
+                            break;
+                        }
+                    }
 
                     Console.WriteLine("");
 
@@ -53,16 +97,45 @@ namespace TaxiManagementAssignment
                 // Option 2: LeaveRank
                 else if (option == 2)
                 { // start of LeaveRank
+                    int rankId = 0;
+                    double agreedPrice = 0;
+                    
                     Console.WriteLine("\nYou have selected 'Leave rank'\n");
 
-                    Console.Write("Please enter a rank ID: ");
-                    int rankId = Convert.ToInt32(Console.ReadLine());
+                    // makes sure the user inputs a number
+                    while (true)
+                    {
+                        Console.Write("Please input a rank ID: ");
+                        string answer = Console.ReadLine();
+
+                        bool isParsable = Int32.TryParse(answer, out rankId);
+
+                        if (isParsable == false) {
+                            Console.WriteLine("\nUser must input a number\n");
+                        }
+                        else {
+                            break;
+                        }
+                    }
 
                     Console.Write("Please enter a destination: ");
                     string destination = Console.ReadLine();
 
-                    Console.Write("Please enter the agreed price: ");
-                    double agreedPrice = Convert.ToDouble(Console.ReadLine());
+                    // makes sure the user inputs a number
+                    while (true)
+                    {
+                        Console.Write("Please enter the agreed price: ");
+                        string answer = Console.ReadLine();
+
+                        bool isParsable = Double.TryParse(answer, out agreedPrice);
+
+                        if (isParsable == false) {
+                            Console.WriteLine("\nUser must input a number\n");
+                        }
+                        else {
+                            break;
+                        }
+                    }
 
                     Console.WriteLine("");
 
@@ -77,13 +150,40 @@ namespace TaxiManagementAssignment
                 // Option 3: DropFare
                 else if (option == 3)
                 { // start of DropFare
+                    int taxiNum = 0;
+                    string priceWasPaid = "";
+                    
                     Console.WriteLine("\nYou have selected 'Drop fare'\n");
 
-                    Console.Write("Please enter a taxi number: ");
-                    int taxiNum = Convert.ToInt32(Console.ReadLine());
+                    // makes sure the user inputs a number
+                    while (true)
+                    {
+                        Console.Write("Please input a taxi number: ");
+                        string answer = Console.ReadLine();
 
-                    Console.Write("Please enter 'yes' if price has been paid and 'no' if price has not been paid: ");
-                    string priceWasPaid = Console.ReadLine();
+                        bool isParsable = Int32.TryParse(answer, out taxiNum);
+
+                        if (isParsable == false) {
+                            Console.WriteLine("\nUser must input a number\n");
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    // makes sure user inputs 'yes' or 'no'
+                    while (true)
+                    {
+                        Console.Write("Please enter 'yes' if price has been paid and 'no' if price has not been paid: ");
+                        priceWasPaid = Console.ReadLine();
+
+                        if(priceWasPaid == "yes" || priceWasPaid == "no") {
+                            break;
+                        }
+                        else {
+                            Console.WriteLine("\nYou must enter 'yes' or 'no'.\n");
+                        }
+                    }
 
                     Console.WriteLine("");
 

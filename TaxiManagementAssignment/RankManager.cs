@@ -10,17 +10,17 @@ namespace TaxiManagementAssignment
 
 		public RankManager()
 		{ // start of RankManager
-			Rank first = new Rank(1, 5);
-			ranks.Add(1, first);
-			Rank second = new Rank(2, 2);
-			ranks.Add(2, second);
-			Rank third = new Rank(3, 4);
-			ranks.Add(3, third);
+			Rank rank1 = new Rank(1, 5);
+			ranks.Add(1, rank1);
+			Rank rank2 = new Rank(2, 2);
+			ranks.Add(2, rank2);
+			Rank rank3 = new Rank(3, 4);
+			ranks.Add(3, rank3);
 		} // end of RankManager
 
 		public bool AddTaxiToRank(Taxi t, int rankId)
 		{ // start of AddTaxiToRank
-			// Check if rank exists or not
+			// Check if rank is in range
 			if (ranks.ContainsKey(rankId) == false) {
 				return false;
 			}

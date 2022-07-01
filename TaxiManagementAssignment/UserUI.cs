@@ -55,20 +55,32 @@ namespace TaxiManagementAssignment
         { // start of TaxiDropsFare
             List<string> dropLog = new List<string>();
             Taxi t = taxiMgr.FindTaxi(taxiNum);
-            t.DropFare(pricePaid);
+            
+            if(t != null)
+            { // start of if
+                t.DropFare(pricePaid);
 
-            if (t.Location == "in rank") { 
-                dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
-            }
-            else {
-                if (pricePaid == true) {
-                    transactionMgr.RecordDrop(taxiNum, pricePaid);
-                    dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
+                if (t.Location == "in rank")
+                {
+                    dropLog.Add($"Taxi {taxiNum} has not dropped its fare.");
                 }
-                else {
-                    transactionMgr.RecordDrop(taxiNum, pricePaid);
-                    dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
+                else
+                {
+                    if (pricePaid == true)
+                    {
+                        transactionMgr.RecordDrop(taxiNum, pricePaid);
+                        dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was paid.");
+                    }
+                    else
+                    {
+                        transactionMgr.RecordDrop(taxiNum, pricePaid);
+                        dropLog.Add($"Taxi {taxiNum} has dropped its fare and the price was not paid.");
+                    }
                 }
+            } // end of if
+            else
+            {
+                dropLog.Add($"Cannot find taxi {taxiNum}.");
             }
 
             return dropLog;
